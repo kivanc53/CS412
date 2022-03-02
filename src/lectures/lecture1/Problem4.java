@@ -26,15 +26,15 @@ class FrequentWordsProblemTest {
         String text = "ACGTTTCACGTTTTACGG";
         int k = 3;
 
-        System.out.printf("K-mers in the text %s%n", Problems4.frequentWords(text, k));
+        System.out.printf("K-mers in the text %s%n", FrequentWordsProblem.frequentWords(text, k));
     }
 }
 
-class Problems4 {
+class FrequentWordsProblem {
     public static String frequentWords(String text, int k) {
 
-        HashMap<String, Integer> frequentWords = new HashMap<String, Integer>();
-        int count = 0;
+        HashMap<String, Integer> frequentWords = new HashMap<>();
+        int count;
         for (int i = 0; i < text.length() - k + 1; i++) {
             String pattern = text.substring(i, i + k);
             count = Problems3.countingWordsProblem(pattern, text);
@@ -49,7 +49,7 @@ class Problems4 {
     public static String findIndexOfMostFrequentValues(HashMap<String, Integer> frequentWords) {
 
         int max = 0, index = 0;
-        ArrayList<Integer> list = new ArrayList<Integer>();
+        ArrayList<Integer> list = new ArrayList<>();
         for (Integer e : frequentWords.values()) {
             if (e > max) {
                 max = e;
@@ -68,16 +68,14 @@ class Problems4 {
 
         String str = "";
         int index;
-        for (int i = 0; i < list.size(); i++) {
+        for (Integer integer : list) {
             index = 0;
             for (String j : frequentWords.keySet()) {
-                if (index == list.get(i)) {
-                    if (str.equals("")) {
-                        str += j;
-                    } else {
+                if (index == integer) {
+                    if (!str.equals("")) {
                         str += " ";
-                        str += j;
                     }
+                    str += j;
                 }
                 index++;
             }
