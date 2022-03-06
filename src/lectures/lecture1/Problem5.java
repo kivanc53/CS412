@@ -32,13 +32,13 @@ class ReverseComplementProblem {
         StringBuilder newText = new StringBuilder();
         for (int i = 0; i < text.length(); i++) {
             char ch = text.charAt(i);
-            newText = dnaComplement(ch, newText);
+            dnaComplement(ch, newText);
         }
-        newText.reverse();
-        return newText.toString();
+
+        return newText.reverse().toString();
     }
 
-    public static StringBuilder dnaComplement(char ch, StringBuilder str) {
+    public static void dnaComplement(char ch, StringBuilder str) {
         if (ch == 'A')
             str.append("T");
         else if (ch == 'G')
@@ -47,6 +47,5 @@ class ReverseComplementProblem {
             str.append("G");
         else
             str.append("A");
-        return str;
     }
 }

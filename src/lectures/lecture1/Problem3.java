@@ -19,7 +19,7 @@ class CountingProblemTest {
     public static void run() {
 
         String pattern = "ATA";
-        String text = "CGATATATCCATAGATA";
+        String text = "CGATATATCCATAG";
 
         System.out.printf("Pattern %s is found %d times%n", pattern, Problems3.countingWordsProblem(pattern, text));
 
